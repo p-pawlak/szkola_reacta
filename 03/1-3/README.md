@@ -1,70 +1,38 @@
-# Getting Started with Create React App
+# 1. Modyfikowalny button
+Napisz komponent przycisku Button. Ale nie będzie to taki zwykły przycisk - będzie posiadał pewnie niezwykłe właściwości ;) Do stworzenia tego komponentu skorzystaj z tagu button, w taki sposób, aby można było przekazać props label, który będzie wyświetlał jego etykietkę.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Poza tym komponent powinien przyjmować props bgColor oraz color, które będą odpowiednio zmieniały kolor tła oraz kolor etykiety. Kolory powinny być zdefiniowane jako słownik w komponencie, czyli zamiast hex przekazujemy string np. red. Kolory możesz pobrać z palety kolorów: https://flatuicolors.com/
 
-## Available Scripts
+# 2. Input i Textarea
+Przygotuj komponenty Input oraz Textarea, które podobnie jak komponent Button przyjmą propsy bgColor dla tła oraz color dla koloru wpisywanego tekstu. Dodatkowo te komponenty powinny mieć propsy, które pozwolą na zmianę obramowania: borderSize, borderRadius, borderColor.
 
-In the project directory, you can run:
+# 3. Eksport komponentów Button, Input i Textarea
+Mając przygotowane komponenty Button, Input oraz Textarea stwórz folder Form, w którym się znajdą, a następnie przygotuj plik index.js, w którym zdefiniujesz eksporty. Eksporty powinny być tak zdefiniowane, abym w każdym miejscu aplikacji mógł skorzystać z importu:
+import { Button, Input, Textarea } from 'components/Form';
 
-### `npm start`
+# 4. Komponent Card
+Przygotuj component Card podobny do tego. Możesz pominąć trzy kropki po prawej stronie. Ikonki można również pominąć, a rozwijaną treść dodatkową możesz pokazywać za pomocą propsa showMore, który będzie przyjmował wartość logiczną np.: 
+```javascript
+<Card title="Shrim and Chorizo Paella" intro="This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup of frozen peas along with the mussels, if you like." showMore content="Method: Heat 1/2 cup of the broth in a pot until simmering, add saffron and set aside for 10 minutes...." />
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# 5. Przygotuj menu nawigacyjne
+Napisz komponenty odpowiedzialne za pokazywanie menu po lewej stronie aplikacji. Stwórz komponenty Menu oraz MenuLink, aby stosować je w następujący sposób:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+```javascript
+<Menu>
+  <MenuLink to="/">Home</MenuLink>
+  <MenuLink to="/about">About</MenuLink>
+  <MenuLink to="/contact" isActive>Contact</MenuLink>
+  <MenuLink to="/posts">Posts</MenuLink>
+</Menu>
+```
 
-### `npm test`
+Jeśli komponent MenuLink posiada propsa isActive to znaczy, że trzeba wyróżnić etykietę np. czerwonym kolorem.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# 6. Lista pracowników
+Stwórz component Employees, który będzie się składał z dwóch kolumn. Lewa będzie zawierała informacje o pracowniku takie jak imię i nazwisko, natomiast prawa będzie z czasem wyświetlała informacje bardziej szczegółowe (rozwiwniemy to zadanie w kolejnych tygodniach). Pracowników możesz przechowywać w tablicy z obiekatmi np. data i przekazywać do komponentu Employees.
 
-### `npm run build`
+Po kliknięciu w imię i nazwisko, w kolumnie po prawej stronie pojawiają się szczegółowe informacje o pracowniku jak wiek, płaca, stanowisko.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Wszystko ma działać bez routingu.
