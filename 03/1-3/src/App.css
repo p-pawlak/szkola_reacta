@@ -1,0 +1,20 @@
+.App button {
+  box-shadow: 5px 5px 10px 0px grey;
+  padding: 10px;
+  border-radius: 30px;
+  outline: none;
+}
+
+.App input[type="text"] {
+  outline: none;
+  box-shadow: 5px 5px 10px 0px grey;
+}
+
+.App button:hover {
+  cursor: pointer;
+}
+
+.App textarea {
+  outline: none;
+  box-shadow: 5px 5px 10px 0px grey;
+}
